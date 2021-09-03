@@ -4,7 +4,7 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
-import { BrowserRouter as Router} from 'react-router'
+import { BrowserRouter as Router} from 'react-router-dom'
 import {logger} from 'redux-logger'
 import thunk from 'redux-thunk'
 import {appylMiddleware,createStore} from 'redux'

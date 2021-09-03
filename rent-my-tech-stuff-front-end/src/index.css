@@ -1,13 +1,151 @@
 body {
+  background-color: black;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  color:rgba(255, 255, 255, 0.9);
+  
+  
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+a{
+  width: 40px;
+  height: 40px;
+}
+.navigation{
+  display: flex;
+  text-align: center;
+  justify-content: space-evenly;
+  border-bottom: 1px solid purple;
+  padding-bottom:  2%;
+  box-sizing: border-box;
+  box-shadow:0px 0px 2px 2px  purple;
+  
+  
+
+}
+
+.navigation a{
+  border:1px solid purple;
+  box-sizing: border-box;
+  box-shadow: transparent;
+  border-radius: 50%;
+  box-shadow: 0px 2px 2px purple; 
+  color:white;
+ 
+  
+  
+
+}
+
+a#home-image{
+  background-image: url('./Assets/Home_Image.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  
+  background-size: 35% ;
+
+}
+
+a#login-image{
+  background-image: url('./Assets/User_login_image.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  
+  background-size: 35% ;
+}
+
+a#signup-image{
+  background-image: url('./Assets/signup.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  
+  
+  background-size: 35% ;
+}
+.App > nav > a{
+  animation: navAnimation 0.5s linear;
+  
+
+}
+
+.container{
+  height:30%;
+  width:35%;
+  box-sizing: border-box;
+  border-radius: 20px 20px;
+  text-align: center;
+  margin: 2% auto;
+  border: 1px solid purple;
+  box-shadow: 3px 3px purple;
+  font-weight: bolder;
+  text-shadow:0px 1px purple;
+  animation: homeAnimation 0.5s linear;
+  
+  
+
+}
+
+
+
+/*mobile app devices*/
+@media screen and (max-width: 480px){
+ 
+  .navigation{
+    padding-top:10%;
+  }
+  
+  
+
+ a#home-image{
+   background-size: 50%;
+ }
+
+ a#login-image{
+  background-size: 50%;
+ }
+
+ a#signup-image{
+   background-size:50%;
+ }
+ 
+}
+
+@keyframes navAnimation {
+  from{
+    transform: scale(0)  ;
+  }
+  
+  
+  to{
+    transform: scale(1)   ;
+  }
+  
+  
+}
+@keyframes homeAnimation {
+  from{
+    transform: scale(0) rotateZ(0deg) ;
+  }
+  
+  
+  to{
+    transform: scale(1)  rotateZ(360deg) ;
+  }
+  
+}
+
+
+
+
+
+
+
