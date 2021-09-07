@@ -19,7 +19,9 @@ const Register=()=>{
     }
 
     return(
+      
         <div className='container'>
+            <h2>Register New Account</h2>
             <form onSubmit={handleRegister}>
                 <div>
                     <label htmlFor='username'>username</label>
@@ -74,3 +76,5 @@ const Register=()=>{
 
     
 }
+
+export default Register

@@ -3,6 +3,7 @@ import { useHistory } from 'react-router'
 
 import useValidation from '../hooks/UseValidation'
 import loginSchema from '../formSchemas/loginSchema'
+import { Link } from 'react-router-dom'
 
 
 const Login=(props)=>{
@@ -21,7 +22,9 @@ const Login=(props)=>{
     }    
 
     return(
+      <div className='login-container'>
         <div className="container">
+            <h2>Login</h2>
             <form onSubmit={handleLogin}>
                 <div>
                     <label htmlFor='username'>Username</label>
@@ -49,17 +52,27 @@ const Login=(props)=>{
 
                 <div className='form-group-submit'>
                     <button id='login-button'>Login</button>
+                    
 
+                   
                     <div className='errors'>
                         <p>{errors.username}</p>
                         <p>{errors.password}</p>
                     </div>
 
                 </div>
-
-
             </form>
+
+           
+
         </div>
+        <div className='container'>
+            <div className='login-registrationlink'>
+               <p>If you don't have an account, register here <button><Link to='/Register'>Register</Link></button></p>
+            </div>
+        </div>
+
+      </div>  
     )
 
 }
