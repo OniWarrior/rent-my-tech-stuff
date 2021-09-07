@@ -17,7 +17,7 @@ const Login=(props)=>{
 
     const handleChange=(e)=>{
         e.preventDefault()
-        setLogin(loginSchema)
+        setLogin(e,loginSchema)
     }    
 
     return(
