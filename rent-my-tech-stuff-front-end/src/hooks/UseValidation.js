@@ -1,4 +1,4 @@
-import * as yup from yup
+import * as yup from 'yup'
 import {useState} from 'react'
 
 const initialValues ={
@@ -14,7 +14,7 @@ const initialErrors={
 }
 
 const useValidation=(schema)=>{
-    const[data,setData]=useSate(initialValues)
+    const[data,setData]=useState(initialValues)
     const[errors,setErrors]=useState(initialErrors)
 
     const onInputChange=(event)=>{
