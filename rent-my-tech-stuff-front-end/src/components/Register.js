@@ -4,14 +4,17 @@ import { useHistory } from 'react-router'
 import registerSchema from '../formSchemas/registerSchema'
 import useValidation from '../hooks/UseValidation'
 
+import { postRegister } from '../actions/RegisterActions'
+import { connect } from 'react-redux'
 
 
-const Register=()=>{
+const Register=(props)=>{
     const {push}=useHistory()
     const [register,errors,setRegister] = useValidation(registerSchema)
 
     const handleRegister=(e)=>{
         e.preventDefault()
+        props.postRegister(register,push)
     }
 
     const handleChange=(e)=>{
@@ -77,4 +80,15 @@ const Register=()=>{
     
 }
 
-export default Register
+
+const mapStateToProps=(state)=>{
+    return {
+        register:state.registerReducer.register,
+        error:state.registerReducer.error,
+        loading:state.registerReducer.loading
+    }
+}
+
+const mapDispatchToProps={postRegister}
+
+export default connect(mapStateToProps,mapDispatchToProps)(Register)

@@ -5,6 +5,9 @@ import useValidation from '../hooks/UseValidation'
 import loginSchema from '../formSchemas/loginSchema'
 import { Link } from 'react-router-dom'
 
+import { postLogin } from '../actions/LoginActions'
+import { connect } from 'react-redux'
+
 
 const Login=(props)=>{
     const {push} = useHistory()
@@ -13,7 +16,7 @@ const Login=(props)=>{
 
     const handleLogin=(e)=>{
         e.preventDefault()
-
+        props.postLogin(e,login,push)
     }
 
     const handleChange=(e)=>{
@@ -77,5 +80,16 @@ const Login=(props)=>{
 
 }
 
+const mapStateToProps =(state)=>{
+    return{
+        login:state.loginReducer.login,
+        error:state.loginReducer.error,
+        loading:state.loginReducer.loading
 
-export default Login
+    }
+
+}
+
+const mapDispatchToProps ={postLogin}
+
+export default connect(mapStateToProps,mapDispatchToProps) (Login)

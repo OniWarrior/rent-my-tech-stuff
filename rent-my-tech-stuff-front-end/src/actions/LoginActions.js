@@ -14,10 +14,10 @@ export const postLogin=(e,login,push)=>(dispatch)=>{
         localStorage.setItem("token",response.data.token)
         alert("You've been logged in!!!")
         const decode = jwtDecode(response.data.token)
-        if (decode.role_name == 'owner'){
+        if (decode.role_name === 'owner'){
             push('/Owner')
         }
-        else if(decode.role_name == 'renter'){
+        else if(decode.role_name === 'renter'){
             push('/Renter')
         }
     })
