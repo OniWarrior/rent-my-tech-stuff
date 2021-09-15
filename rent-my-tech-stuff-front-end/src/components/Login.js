@@ -3,6 +3,10 @@ import { useHistory } from 'react-router'
 
 import useValidation from '../hooks/UseValidation'
 import loginSchema from '../formSchemas/loginSchema'
+import { Link } from 'react-router-dom'
+
+import { postLogin } from '../actions/LoginActions'
+import { connect } from 'react-redux'
 
 
 const Login=(props)=>{
@@ -12,16 +16,18 @@ const Login=(props)=>{
 
     const handleLogin=(e)=>{
         e.preventDefault()
-
+        props.postLogin(e,login,push)
     }
 
     const handleChange=(e)=>{
         e.preventDefault()
-        setLogin(loginSchema)
+        setLogin(e,loginSchema)
     }    
 
     return(
+      <div className='login-container'>
         <div className="container">
+            <h2>Login</h2>
             <form onSubmit={handleLogin}>
                 <div>
                     <label htmlFor='username'>Username</label>
@@ -49,20 +55,41 @@ const Login=(props)=>{
 
                 <div className='form-group-submit'>
                     <button id='login-button'>Login</button>
+                    
 
+                   
                     <div className='errors'>
                         <p>{errors.username}</p>
                         <p>{errors.password}</p>
                     </div>
 
                 </div>
-
-
             </form>
+
+           
+
         </div>
+        <div className='container'>
+            <div className='login-registrationlink'>
+               <p>If you don't have an account, register here <button><Link to='/Register'>Register</Link></button></p>
+            </div>
+        </div>
+
+      </div>  
     )
 
 }
 
+const mapStateToProps =(state)=>{
+    return{
+        login:state.loginReducer.login,
+        error:state.loginReducer.error,
+        loading:state.loginReducer.loading
 
-export default Login
+    }
+
+}
+
+const mapDispatchToProps ={postLogin}
+
+export default connect(mapStateToProps,mapDispatchToProps) (Login)
